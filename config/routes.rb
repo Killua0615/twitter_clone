@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, sign_out_via: [:get, :delete]
+  
+  # 投稿機能のルート
+  resources :posts, only: [:index] # 必要に応じて他のアクションも追加
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/*
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # PWA関連（必要な場合は残す）
+  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # ルートの設定
+  root "posts#index"
 end
