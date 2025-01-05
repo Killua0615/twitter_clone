@@ -4,6 +4,6 @@ class PostsController < ApplicationController
 
   def index
     # 仮のデータ
-    @posts = ["投稿1", "投稿2", "投稿3"]
+    @posts = [ "投稿1", "投稿2", "投稿3" ]
   end
 end

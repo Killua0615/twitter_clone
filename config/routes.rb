@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, sign_out_via: [:get, :delete]
-  
+  devise_for :users, sign_out_via: [ :get, :delete ]
+
   # 投稿機能のルート
-  resources :posts, only: [:index] # 必要に応じて他のアクションも追加
+  resources :posts, only: [ :index ] # 必要に応じて他のアクションも追加
 
   # get "up" => "rails/health#show", as: :rails_health_check
 
